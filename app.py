@@ -7,14 +7,13 @@ import re
 model = pickle.load(open("model_pickle","rb"))
 
 app = Flask(__name__)
-CORS(app)
 
 @app.route("/predict",methods=["POST"])
 def predict():
     test=request.get_json()
     if test is None:
         return jsonify({"error": "Geçersiz istek, veri yok."}), 400
-    pattern = r'^[0-9.]+$'
+    pattern = r'^[0-9.-]+$'
     data=list(request.get_json().values())
     for value in data:
         if not re.match(pattern,value):
