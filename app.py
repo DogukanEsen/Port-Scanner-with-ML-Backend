@@ -7,7 +7,7 @@ import re
 model = pickle.load(open("model_pickle","rb"))
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/predict": {"origins": "https://ml-port-scanner.netlify.app/"}})
+cors = CORS(app, origins= "https://ml-port-scanner.netlify.app/")
 
 @app.route("/predict",methods=["POST"])
 def predict():
