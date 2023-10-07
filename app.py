@@ -9,7 +9,7 @@ model = pickle.load(open("model_pickle","rb"))
 app = Flask(__name__)
 
 @app.route("/predict",methods=["POST"])
-@cross_origin(origins=["https://ml-port-scanner.netlify.app/"])
+@cross_origin(origins=["https://ml-port-scanner.netlify.app"])
 def predict():
     test=request.get_json()
     if test is None:
